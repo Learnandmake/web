@@ -1,2 +1,1 @@
-#autoral
-contem sites autorais 
+By me
