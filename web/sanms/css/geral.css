@@ -1,0 +1,22 @@
+#principal
+{
+	background-image: url('https://lh3.googleusercontent.com/zmhDU4pFHA0S4Q_81qnBsYVn1OkMgB1z_iT0BxnOnsIylIFnw-iCVFbOnA_gC3WRW3Ha_--VNSegegXPQCng_fbMLV_4xlym7QvOpwPj08ENR6fhXB6bGI9pQa0tjHod8qv1rGKWEslaju8cGf33avOfeY4MNyvTYXwMEwvNHY0aWEuTXu-NM33uapM04I7YeLzaj_CxJGXQj-fFlawncjaF6jr8iMsCD0C-kBt6YyJDm9Ig1E6AeLzk7R1BUc6jDx-bUylPmVuRuOzJCIk9vN1GnCKLeRZG1srDbDhFT2CBWhMlGzNjHe4HAt_Qh75sr8qZEM5r3mHhof3817gwSxfcvOSAJgTmGnEadh7S1NL06stSePJtyPEtkCeRLJifNfXIflcwmW2vSLPFngA2dCPpe0WnTSBB1wiuSkhsfegqMwhIoP0aokmeA8wcNRQ-qDZZF-ifxWFNNdbEt0VpzUXNst2x0dN3kJrZLbv4gBKF-1FcejA16pCsyYipU59MV-ourbkpG32afcoYMKeTxdDhDs6k_pQaGaK-jSVw8a0wC0g1nLV-zz3lE2quFl2Lu7lriGgPa3dTYpEKUlJjUYpjO8-eAd6_tJKlefV_caSo4eqMhqKIBI20_b-LUq7vW1LpwPGYy7xrRv8jL_FQh_VTB6qXDfcsVGXVxJHGlmSuv14dHzdgPr1n0QRYj-EO5C6vK3HU2xAAx0-l2wYm7Kg=w1024-h576-no?authuser=9') ;
+	background-color:black;
+	background-attachment: fixed;
+    background-size: 1250px;
+	background-repeat: no-repeat;
+
+}
+.formatacao
+{
+	color: white;
+	font-size: 50;
+	font-family:'Comic Sans MS' ;
+	font-style: italic;
+	
+}
+.agrupar
+{
+	border: 1px solid white;
+	background-color:black;
+}
