@@ -8,15 +8,28 @@
 
 }
 .formatacao
-{
+{  padding-left: 10px;
 	color: white;
 	font-size: 50;
 	font-family:'Comic Sans MS' ;
 	font-style: italic;
 	
 }
+
+
 .agrupar
 {
 	border: 1px solid white;
 	background-color:black;
+}
+
+#floate
+{
+	float:right;
+
+}
+
+.clear
+{
+	clear:both;
 }
