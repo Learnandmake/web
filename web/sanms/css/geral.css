@@ -34,20 +34,10 @@
 	clear:both;
 }
 
-.agrupar1
-{
-	border: 1px solid white;
-	background-color:black;
-	width: 242px;
-	height: 500px;
-	overflow: hidden;
-}
 
 .img-container{
 	width: 242px;
 	height: 500px;
-	overflow: hidden;
-	
  }
  
  .img-container img{
