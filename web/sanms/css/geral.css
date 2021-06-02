@@ -8,20 +8,24 @@
 
 }
 .formatacao
-{  padding-left: 10px;
+{ border: 1px solid white;
+	background-color:black;
+	padding-left: 10px;
 	color: white;
 	font-size: 50;
 	font-family:'Comic Sans MS' ;
 	font-style: italic;
-	
 }
-
-
-.agrupar
-{
-	border: 1px solid white;
+.bordaimagem
+{border: 1px solid white;
 	background-color:black;
+	
+
 }
+
+
+
+
 
 #floate
 {
