@@ -23,14 +23,16 @@
 
 }
 
-
+#rodape
+{
+text-align: left;
+}
 
 
 
 #floate
 {
 	float:right;
-
 }
 
 .clear
