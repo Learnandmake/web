@@ -71,7 +71,7 @@ ul
     padding:0px;
     margin:0px;
     list-style-type:none;
-	
+	float: left;
 }
 
 li
@@ -79,7 +79,7 @@ li
 padding:5px 20px;
 border-width: 400;
 background-color:black;
-
+float: left;
 }
 
 ul a
@@ -91,7 +91,7 @@ ul a
 	color:white;
 	text-indent: 40px;
 	line-height: 40px;
-	
+	float: left;
 }
 #design #navegacao .design a,
 #programacao #navegacao .programacao a,
@@ -108,3 +108,7 @@ a:hover
 	background-color: white;
 	color: black;
 }
+ul li
+{ 
+	clear: both;
+	float: left;}
