@@ -12,6 +12,7 @@
 {border: 1px solid white;
 	background-color:black;
 }
+
 #principal
 {
 	background-image: url('https://lh3.googleusercontent.com/lNpjBNBhf_OC7B0yi97NpXiBwUhE8AHRKK-Ix70Re3-LkL3QKDc3yFTWxaX_1mzqjzvREfEZl29Abibl_WwxML2LW-euHmQ_-LCcyeMv4ZFuSJWMF1w7adQeP2OVvMiIRWJVK-vhLoCe-6jkCHDRyD8c4MCszGX2-KPh4pJPfYjTzSz8JyBf3hZIxdJtiKFl7OI_I1pl0ZWNv8ydFeehfY2lpKZf-maxYtNXqkyv-T5xK5eVmeVMecmeZQpSqUxZ9yyxzgGPg-4-8ix8XjNxbHJ9QMCCIthSkAN5LXXnxfST9bqB_c2wDRnVEdreEKpgcyQ5lbCSd8HsjzvmFTta5CYOqhptjB8w1JPjVoAA5NF0Zee66hrrLgyqk9emDmyGR13Y13cGt5oP73ruG9z814cOABFcSZnBFAhwL-0UTRGTs_sM7W2tjXH2HjfzP6JUv3Q2sP1rPW7X4CnMyw-fPnLS2421VQ7vESe-FnuDvYzKuCrIb-NrZ6hQDl1K-o1hu8wvevHLXWjqH-STTDxzwOgLPmYBAkP_3sLoy_xDb1Ow_V22xWpR9XB7mp7lJmyugLb3r6jbFTJTKFWSiVCwQkFiIFnxIupKGZkRGYYbEE6JOCcCPEMz9-1OPHhc7DaffFlNft1En0OjOtSzUu0bpda5YgxFTxCb4Fm7aANjPmgjPE6BCtoA34y2hrF7RgEdSYgLvlGePXm14RbRINXMnz8=w768-h513-no?authuser=9') ;
@@ -103,6 +104,15 @@ ul a
 	background-color: white;
 	color: black;
 }
+
+
+
+
+#desing #categoria .photoshop a
+{
+	background-color: white;
+	color: black;
+}
 a:hover
 {
 	background-color: white;
@@ -112,3 +122,4 @@ ul li
 { 
 	clear: both;
 	float: left;}
+
