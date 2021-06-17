@@ -22,7 +22,7 @@
 
 }
 ul
-{ 
+{ border: 1px solid white;
     padding:0px;
     margin:0px;
     list-style-type:none;
@@ -32,7 +32,6 @@ ul
 li
 {
 padding:5px 20px;
-border: 1px solid white;
 border-width: 400;
 background-color:black;
 
@@ -49,8 +48,7 @@ ul a
 	line-height: 40px;
 	
 }
-a:hover{
-	background-position: right bottom;
+a:hover, .selecionado a{
 	background-color: white;
 	color: black;
 }
