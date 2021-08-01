@@ -23,6 +23,7 @@ z-index:10000;
     font-size: 22px;
     font-family: 'poppins',sans-serif;;
     color: #0ebdf6;
+    text-shadow: 1px 1px 3.5px black;
 }
 
 header ul
@@ -45,6 +46,7 @@ header ul li a
     text-decoration: none;
     float:left;
     border-radius: 20px;
+    
 }
 header ul li a:hover
 {
@@ -54,6 +56,7 @@ header ul li a:hover
     
 }
 
+/*fim cabecalho*/
 #text
 {
     position: absolute;
@@ -61,5 +64,42 @@ header ul li a:hover
     white-space: nowrap;
     font-size: 7.5vw;
     z-index:9;
-    transform: translateY(-250px);
+    transform: translateY(210px);
+    text-shadow: 1px 1px 5px black;
+
 }
+
+section 
+{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    padding:100px;
+    display: flex;
+    overflow:hidden;
+    justify-content: center;
+    align-items: center;
+}
+
+section::before
+{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(to top, #0ebdf6,transparent);
+    z-index: 1000;
+}
+
+section img
+{
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+}
+/*fim home*/
