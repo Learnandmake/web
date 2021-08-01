@@ -103,3 +103,35 @@ section img
     pointer-events: none;
 }
 /*fim home*/
+#missao
+{
+    position:relative;
+    padding:100px;
+    background:#0ebdf6;
+   width: 100%;
+}
+#missao h3
+{
+    font-size: 3.5em;
+    margin-bottom: 10px;
+    color: #fff;
+    text-align: center;
+}
+
+    /*funcao*/ /*nome*/
+       @keyframes animacao-tmissao
+       {
+           from 
+           {
+            /*estado inicial*/
+            margin-left: 11px;
+           }
+           to
+           {
+            /*estado final*/
+            background:yellow;
+            border-radius: 300px;
+            top:200px;
+            left:200px;
+           }
+       }
