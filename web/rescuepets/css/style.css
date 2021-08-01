@@ -15,7 +15,14 @@ display: flex;
 justify-content: space-between;
 align-items: center;
 z-index:10000;
- 
+}
+
+#logo
+{
+    text-transform: uppercase;
+    font-size: 22px;
+    font-family: 'poppins',sans-serif;;
+    color: #0ebdf6;
 }
 
 header ul
@@ -30,6 +37,8 @@ header ul li
     margin-left:30px;
     
 }
+
+
 header ul li a 
 {
     color:#0ebdf6;
@@ -44,11 +53,13 @@ header ul li a:hover
     padding:10px;
     
 }
-#logo
+
+#text
 {
-    text-transform: uppercase;
-    font-size: 22px;
-    font-family: 'poppins',sans-serif;;
-    color: #0ebdf6;
+    position: absolute;
+    color:#0ebdf6;
+    white-space: nowrap;
+    font-size: 7.5vw;
+    z-index:9;
+    transform: translateY(-250px);
 }
- 
