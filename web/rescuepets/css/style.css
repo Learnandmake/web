@@ -57,6 +57,7 @@ header ul li a:hover
 }
 
 /*fim cabecalho*/
+  /*funcao*/ /*nome*/
 @keyframes animacao-frase
 {
     from 
@@ -126,15 +127,54 @@ section img
     background:#0ebdf6;
    width: 100%;
 }
-  /*funcao*/ /*nome*/
+
  
+ /*teste*/
+
+  
+  @keyframes fade-in {
+    0% { 
+      opacity: 0;
+      transform: translateY(50%);
+  }
+  100% { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+  @keyframes up-and-down {
+    0%, 100% { transform: translateY(-15%)}
+    50%   { transform: translateY(15%)}
+  }
+
+  .wrapper {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 150px;
+   }
+   .from-bottom {
+    animation: fade-in 0.8s ;
+    animation-play-state: paused;
+    animation-fill-mode: forwards;
+  }
 #missao h3
 {
     font-size: 3.5em;
     margin-bottom: 10px;
     color: #fff;
    text-align: center;
- 
+   animation: up-and-down 1.5s ease-in-out infinite;
+   
 }
 
+#missao h5
+{  font-size: 2.0em;
+    margin-bottom: 10px;
+    color: #fff;
+   text-align: left;
   
+  
+}
+ 
