@@ -57,6 +57,19 @@ header ul li a:hover
 }
 
 /*fim cabecalho*/
+@keyframes animacao-frase
+{
+    from 
+    {
+     /*estado inicial*/
+     margin-left: 400px;
+    }
+    to
+    {
+     /*estado final*/
+    margin-right: 500px;
+    }
+}
 #text
 {
     position: absolute;
@@ -66,7 +79,10 @@ header ul li a:hover
     z-index:9;
     transform: translateY(210px);
     text-shadow: 1px 1px 5px black;
-
+    animation-name:animacao-frase;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
 }
 
 section 
@@ -110,28 +126,15 @@ section img
     background:#0ebdf6;
    width: 100%;
 }
+  /*funcao*/ /*nome*/
+ 
 #missao h3
 {
     font-size: 3.5em;
     margin-bottom: 10px;
     color: #fff;
-    text-align: center;
+   text-align: center;
+ 
 }
 
-    /*funcao*/ /*nome*/
-       @keyframes animacao-tmissao
-       {
-           from 
-           {
-            /*estado inicial*/
-            margin-left: 11px;
-           }
-           to
-           {
-            /*estado final*/
-            background:yellow;
-            border-radius: 300px;
-            top:200px;
-            left:200px;
-           }
-       }
+  
