@@ -308,7 +308,7 @@ section img
     white-space: nowrap;
     font-size: 7.5vw;
     z-index:9;
-    transform: translateY(-160px);
+    transform: translateY(-350px);
 }
 #btn
 {
