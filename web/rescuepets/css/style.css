@@ -120,16 +120,10 @@ section img
     pointer-events: none;
 }
 /*fim home*/
-#missao
-{
-    position:relative;
-    padding:100px;
-    background:#0ebdf6;
-   width: 100%;
-}
+
 
  
- /*teste*/
+/*missao*/
 
   
  @keyframes fade-in {
@@ -143,25 +137,41 @@ section img
 }
 }
 
+@keyframes fade-x {
+  0% { 
+    opacity: 0;
+    transform: translateX(50%);
+}
+100% { 
+  opacity: 1;
+  transform: translateY(0);
+}
+}
 
+#missao
+{
+    position:relative;
+    padding:100px;
+    background:#0ebdf6;
+    width: 100%;
+}
   @keyframes up-and-down {
     0%, 100% { transform: translateY(-15%)}
     50%   { transform: translateY(15%)}
   }
-
-  .wrapper {
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 150px;
-   }
+ 
    .from-bottom {
-    animation: fade-in 0.8s cubic-bezier(.17,.67,.49,1.02);
+    animation: fade-in 0.8s ;
+    animation-play-state: paused;
+    animation-fill-mode: forwards;
+  }
+  .from-x {
+    animation: fade-x 0.8s ;
     animation-play-state: paused;
     animation-fill-mode: forwards;
   }
 #missao h3
-{
-    font-size: 3.5em;
+{ font-size: 3.0em;
     margin-bottom: 10px;
     color: #fff;
    text-align: center;
@@ -170,11 +180,19 @@ section img
 }
 
 #missao h5
-{  font-size: 2.0em;
+{  
+    font-size: 2.0em;
     margin-bottom: 10px;
     color: #fff;
-   text-align: left;
-  
-  
+    text-align: left;
+   
 }
- 
+#missao p
+{ 
+  font-size: 1em;
+    color:#fff;
+   text-align: left;
+   float:left;
+}
+
+/*fim da missao*/
