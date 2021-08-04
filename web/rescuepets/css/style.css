@@ -2,6 +2,8 @@
 body
 {
     background-color:#f7f7f7;
+    margin:0;
+    height: 100%;
 }
 
 header
@@ -197,3 +199,126 @@ section img
 /*fim da missao*/
 
 /*album*/
+#album
+{
+    position:relative;
+    padding:100px;
+    width: 100%;
+}
+.caixa1
+{
+    background-image: url(https://lh3.googleusercontent.com/pw/AM-JKLXoZS4yer6wYQ1Jo5l92vChI9kakwiygiTdUdxUJPYZy4qMLfaesmMubs46jrhFLv4Z3sqmwvLGkIqcaK-CkiG8GoTTUYwecEOuuhIt0p6e3ybYfBeu3b6EYO5-WHlSSyNwlykHaC4PAKyKzT_gtKZy=w759-h500-no?authuser=7);
+}
+
+.caixa2
+{
+    background-image: url(https://lh3.googleusercontent.com/pw/AM-JKLVa3_oE3WKnagSOwLpcX7cMwaG59bdYMKTNoF6aNOMsneUDT3r9ARQMsHDBDormnp671jEb6t5-QZi9RBkC0mvXnuC8rDhZuGTpfe0v4L5q56ZxBYTSNpOndf9FZzsqigt0Poeb9aXMGUn8PS3Kwd0Y=w822-h657-no?authuser=7);
+}
+
+.caixa3
+{
+    background-image: url(https://lh3.googleusercontent.com/pw/AM-JKLWdufn-XWz2Bg9nqlvxKxf6UzDo4r0zT9DMUWdBmmWU9P8Tc6Fsu3yZh1JMcbYZQf2qtYUQ-vqpp97sRW1xM8jJ_ycjxVi2T-W7QKaNgWhmBtxAX93wnRUZGwXKJFwpIhOoxMjIgqe9JO9t3YGOm0-O=w1024-h576-no?authuser=7);
+}
+.caixa4
+{
+    background-image: url(https://lh3.googleusercontent.com/pw/AM-JKLVUHujVhZ0Ev5IXVBrOxl4xxaJ2J7sKAIETEim-F5uw4Kepp-NoWBRcL79fSJrJHBnlmgYuhYGGSd0JK9f2Ihaa9DaL2NFAPgZbV3RL4wZ08EW3S8T9Ankiz5iz5ijTXk6WlZCIM1t7CU5itM22V1Cc=w900-h600-no?authuser=7);
+}
+.caixa1,.caixa2,
+.caixa3,.caixa4
+{
+
+  position: relative;
+  opacity: 0.7;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+#caixa4::before
+{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(to top, white,transparent);
+    z-index: 1000;
+}
+.conteudo-titulo
+{
+    position: absolute;
+    left: 0;
+    top:45%;
+    width: 100%;
+    text-align: center;
+}
+
+.conteudo
+{
+    color:#777;
+    background-color: white;
+    text-align: justify;
+    padding:50px 80px;
+}
+.conteudo-titulo span.titulo
+{  
+    color:#fff;
+    background-color:#111;
+    padding:18px;
+    font-size:25px;
+    letter-spacing: 5px;
+}
+.conteudo
+{
+    color:#777;
+    background-color: white;
+    text-align: justify;
+    padding:50px 80px;
+}
+/*fim album*/
+/*começo contato*/
+#contato
+{
+    margin-top: 990px;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    padding:100px;
+    display: flex;
+    overflow:hidden;
+    justify-content: center;
+    align-items: center;
+}
+#contato img
+{
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+}
+
+#tcontato
+{
+    position: absolute;
+    color:#fff;
+    white-space: nowrap;
+    font-size: 7.5vw;
+    z-index:9;
+    transform: translateY(-160px);
+}
+#btn
+{
+    text-decoration: none;
+    display: inline-block;
+    padding: 8px 30px;
+    border-radius: 40px;
+    background: #fff;
+    color: #0ebdf6;
+    font-size: 1.5em;
+    z-index: 9;
+    transform: translateY(100px);
+}
