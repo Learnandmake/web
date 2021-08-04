@@ -303,8 +303,9 @@ section img
 
 #tcontato
 {
+    font-family: 'poppins',sans-serif;
     position: absolute;
-    color:#fff;
+    color:#0ebdf6;
     white-space: nowrap;
     font-size: 7.5vw;
     z-index:9;
