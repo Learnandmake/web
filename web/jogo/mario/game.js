@@ -87,24 +87,56 @@ const levelCfg =
     //define o tamanho de cada sprite
     width:20,
     height:20,
-    //define os elementos 
+//define os elementos 
 //elementos q vai ser substituido| instancia o sprite que vai substituir|nome do sprite|estado de posicao do sprite 
     '='                           :[sprite(                              'block'),        solid() ],
  //moeda
     '$':[sprite('coin')],
 //luckyblock
 '%':[sprite('surprise'), solid(), 'coin-surprise'],
+//mushroom e luckyblock
 '*':[sprite('surprise'), solid(), 'mushroom-surprise'],
-'}':[sprite('unboxed'), solid()],       //determina escala do elemento
+//unboxed
+'}':[sprite('unboxed'), solid()],   //determina escala do elemento
 '(':[sprite('pipe-bottom-left'), solid(),scale(0.5)],
+//pipe
 ')':[sprite('pipe-bottom-right'), solid(),scale(0.5)],
 '+':[sprite('pipe-top-right'), solid(),scale(0.5)],
 '-':[sprite('pipe-top-left'), solid(), scale(0.5)],
+//evil-shroom
 '^':[sprite('evil-shroom'), solid()],
 '#':[sprite('mushroom'), solid(), scale(0.5)],
 }
-
+//instancia o level no jogo
 const gameLevel= addLevel(map, levelCfg)
+
+//instancia a pontuacao do score //adiciona a pontuacao
+const scorelabel =               add([
+    text('test'),
+    pos(30,6),
+    //instancia camada que o score está
+    //para nao interferir na camada que esta
+    //acontecendo o jogo
+    layer('ui'),
+    //determina o que vai acontecer na camada ui
+    {
+    //determina o score em uma variavel
+    value:'test',
+    }
+])
+
+//texto  |conteudo|nome|posicao
+add([text('level'+'test',pos(4,6))])
+//instancia o player(mario)
+const player = add([
+sprite('mario'),solid(),
+//posicao do player(mario)
+pos(30,0),
+//instancia a gravidade
+body(),
+origin('bot')
+
+])
 })
 
 
