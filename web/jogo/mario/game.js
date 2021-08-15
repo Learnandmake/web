@@ -6,6 +6,13 @@ scale:1,
 debug:true,
 clearColor: [0,0,0,1],
 })
+
+//variavel com a velocidade do movimento do player (mario)
+const MOVE_SPEED =120
+//varivel com a forca do pulo do mario
+const JUMP_FORCE=360
+
+
 /*sprites (imagens)-inicio*/
 /*carregamento de sprites (imagens)  site */
 /*o endereco da imagem especifica ira se fundir com o endereco do site*/
@@ -137,8 +144,38 @@ body(),
 origin('bot')
 
 ])
+
+//controle teclado
+
+
+//evento com o evento de precionar e manter precionado a tecla
+//metodo do kaboom|tecla|         | funcao do evento
+keyDown(           'left'         , ()=>  {
+//instancia o player|funcao para mover o player|velocidade do movimento
+player               .move                      (-MOVE_SPEED,0)
+})
+//mover para direita
+keyDown('right', ()=>  {
+
+    player.move(MOVE_SPEED,0)
+    })
+
+//funcao com evendo de presionar e depois soltar a tecla
+keyPress('space', ()=>  {
+
+    //verifica se o mario esta no chao
+    if(player.grounded())
+    {
+        //funcao que faz o player pular|regula a forca do pulo
+        player.jump                    (JUMP_FORCE)
+    }
+ 
+
 })
 
 
+})
 
+
+//inicia o jogo
 start("game")
