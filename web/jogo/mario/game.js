@@ -25,7 +25,7 @@ loadSprite(
     )
       /*sprite bloco*/
 loadSprite(
-    'block','bdrLpi6.png'
+    'block','M6rwarW.png'
 )
     
     /*sprite mario*/
@@ -74,22 +74,34 @@ const map =
     '                                                     ',
     '                                                     ',
     '                                                     ',
+    '   %   =*=%=                                         ',
     '                                                     ',
-    '                                                     ',
-    '                                                     ',
-    '                                                     ',
-    '=================================   =================',
+    '                            -+                        ',
+    '                    ^   ^   ()                        ',
+    '===============================   =====',
 ]
 
-//determina o level
+//instancia o level
 const levelCfg =
 {
     //define o tamanho de cada sprite
     width:20,
     height:20,
     //define os elementos 
-//elementos q vai ser substituido| sprite que vai substituir 
-    '='                           :[sprite('block',solid()) ]   
+//elementos q vai ser substituido| instancia o sprite que vai substituir|nome do sprite|estado de posicao do sprite 
+    '='                           :[sprite(                              'block'),        solid() ],
+ //moeda
+    '$':[sprite('coin')],
+//luckyblock
+'%':[sprite('surprise'), solid(), 'coin-surprise'],
+'*':[sprite('surprise'), solid(), 'mushroom-surprise'],
+'}':[sprite('unboxed'), solid()],       //determina escala do elemento
+'(':[sprite('pipe-bottom-left'), solid(),scale(0.5)],
+')':[sprite('pipe-bottom-right'), solid(),scale(0.5)],
+'+':[sprite('pipe-top-right'), solid(),scale(0.5)],
+'-':[sprite('pipe-top-left'), solid(), scale(0.5)],
+'^':[sprite('evil-shroom'), solid()],
+'#':[sprite('mushroom'), solid(), scale(0.5)],
 }
 
 const gameLevel= addLevel(map, levelCfg)
