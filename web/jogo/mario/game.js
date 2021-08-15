@@ -131,9 +131,58 @@ const scorelabel =               add([
     value:'test',
     }
 ])
-
 //texto  |conteudo|nome|posicao
 add([text('level'+'test',pos(4,6))])
+
+//deixa o mario gigante
+function big() {
+    //tempo que o mario fica gigante
+    let timer=0
+
+    //determina se o mario esta gigante
+    let isBig =false 
+
+    return
+    {
+        //atualiza a funcao
+        update()
+      {
+        //se a funcao for ativada
+        if(isBig)
+        {//tempo|menos|delta time methodo de tempo proprio do kaboom.js
+         timer  -=     dt()
+         if(timer<=0)
+         {
+             //tona o mario pequeno denovo
+             this.smallify()
+         }
+        }
+      }
+        isBig()
+        {
+         return isBig
+        }
+
+        smallify () 
+        {
+            this.scale=vec2(1)
+            timer =0
+            isBig=false
+        }
+
+        biggify (time)
+        {
+            
+            this.scale=vec2(1)
+            timer =time
+            isBig=true
+        }
+
+    }
+}
+
+
+
 //instancia o player(mario)
 const player = add([
 sprite('mario'),solid(),
@@ -141,6 +190,8 @@ sprite('mario'),solid(),
 pos(30,0),
 //instancia a gravidade
 body(),
+//possibilita deixar o mario gigante
+big(),
 origin('bot')
 
 ])
@@ -174,6 +225,10 @@ keyPress('space', ()=>  {
 })
 
 
+
+
+
+//final da cena
 })
 
 
