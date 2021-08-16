@@ -73,8 +73,8 @@ loadSprite(
     )
     /*sprites -fim*/
 
-/*camadas da cena */
-scene("game", ({score}) =>
+/*camadas da cena |intancia o level(nesse caso o 0)|instancia o score    */
+scene("game", ({   level,                           score}) =>
 {
 //nome das camadas
 layers(['bg','obj','ui'],'obj')
@@ -115,8 +115,8 @@ const levelCfg =
 '(':[sprite('pipe-bottom-left'), solid(),scale(0.5)],
 //pipe
 ')':[sprite('pipe-bottom-right'), solid(),scale(0.5)],
-'+':[sprite('pipe-top-right'), solid(),scale(0.5)],
-'-':[sprite('pipe-top-left'), solid(), scale(0.5)],
+'+':[sprite('pipe-top-right'), solid(),scale(0.5),'pipes'],
+'-':[sprite('pipe-top-left'), solid(), scale(0.5),'pipes'],
 //evil-shroom
 '^':[sprite('evil-shroom'), solid(),'dangerous'],
                            //tag para especificar|adiciona gravidade para o cogumelo
@@ -128,7 +128,7 @@ const gameLevel= addLevel(map, levelCfg)
 //instancia a pontuacao do score //adiciona a pontuacao
 const scorelabel =               add([
     //instancia o score
-    text(score),
+    text ('score'+' '+score),
     pos(30,6),
     //instancia camada que o score está
     //para nao interferir na camada que esta
@@ -140,8 +140,8 @@ const scorelabel =               add([
     value:score,
     }
 ])
-//texto  |conteudo|nome|posicao
-add([text('level'+'test',pos(4,6))])
+//adiciona|texto|    nivel            |posicao de texto
+add([text('level'+ parseInt(level+1)) ,pos(100,6)])
 
 //deixa o mario gigante
 function big() {
@@ -269,7 +269,22 @@ player.collides('coin',(c) =>
 {
     destroy(c)
     scorelabel.value++
-    scorelabel.text=scorelabel.value
+   scorelabel.text=  'score'+' ' +scorelabel.value
+})
+
+//acao de entrar pelo cano 
+//quando o mario colidir com o cano
+player.collides ('pipes',()=> {
+//pressionar o botao seta pra baixo
+keyPress('down', () =>{
+//vai para tela 'game'
+    go('game',{
+     //level|acrescenta mais um nivel
+     level:(level+1),
+     //instancia o score
+     score:scorelabel.value
+})
+})
 })
 
 //acao de morte por queda
@@ -346,5 +361,5 @@ scene('lose', ({score}) => {
     //adiciona|texto  | centraliza o texto| pega a posicao e altura e divide o tamanho por 2
     add([text(score,32),origin('center'),pos(width()/2,height()/2)])
 })
-//inicia o jogo
-start("game",{score:0})
+//inicia o jogo|instancia o level|instancia o score
+start("game",{  level:0,          score:0})
