@@ -114,20 +114,18 @@ const maps =[
     '===============================   =====              ',
 ],
 [
-    '                                                     ',
-    '                                                     ',
-    '                                                     ',
-    '                                                     ',
-    '                                                     ',
-    '                                                     ',
-    '   %   =*=%=                                         ',
-    '                                                     ',
-    '                            -+                       ',
-    '                    ^   ^   ()                       ',
-    '===============================   =====              ',
+    '£                                                     £',
+    '£                                                     £',
+    '£                                                     £',
+    '£                                                     £',
+    '£                                                     £',
+    '£                                                     £',
+    '£     @@@@@@@@@                     x x               £',
+    '£                                 x x x               £',
+    '£                               x x x x   x         -+£',
+    '£                    z   z    x x x x x   x         ()£',
+    '!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!',
 ]
-] = [
-
 ]
 //instancia o level
 const levelCfg =
@@ -137,7 +135,8 @@ const levelCfg =
     height:20,
 //define os elementos 
 //elementos q vai ser substituido| instancia o sprite que vai substituir|nome do sprite|estado de posicao do sprite 
-    '='                           :[sprite(                              'block'),        solid() ],
+  //level1
+'='                           :[sprite(                              'block'),        solid() ],
  //moeda
     '$':[sprite('coin'),'coin'],
 //luckyblock
@@ -155,6 +154,12 @@ const levelCfg =
 '^':[sprite('evil-shroom'), solid(),'dangerous'],
                            //tag para especificar|adiciona gravidade para o cogumelo
 '#':[sprite('mushroom'), solid(), 'mushroom',     body()    ], 
+//level2
+'!':[sprite('blue-block'), solid(),scale(0.5) ], 
+'£':[sprite('blue-brick'), solid(),scale(0.5) ],
+'z':[sprite('blue-evil-shroom'), solid(),scale(0.5),'dangerous' ],
+'@':[sprite('blue-surprise'), solid(),scale(0.5),'coin-surprise' ],
+'x':[sprite('blue-steel'), solid(),scale(0.5) ],
 }
 //instancia o level no jogo
 const gameLevel= addLevel(maps[level], levelCfg)
@@ -313,8 +318,8 @@ player.collides ('pipes',()=> {
 keyPress('down', () =>{
 //vai para tela 'game'
     go('game',{
-     //level|acrescenta mais um nivel
-     level:(level+1),
+     //level|acrescenta mais um nivel|determina um loop com limite numero de mapas
+     level:(level+1)  %              maps.length,
      //instancia o score
      score:scorelabel.value
 })
