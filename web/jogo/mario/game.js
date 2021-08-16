@@ -15,7 +15,10 @@ const JUMP_FORCE=360
 const BIG_JUMP_FORCE =550
 //variavel com forca atual de pulo
 let CURRENT_JUMP_FORCE=JUMP_FORCE
-
+//variavel bool jump
+let isJumping =true
+//constante que determina a morte por queda
+const FALL_DEATH =400
 
 /*sprites (imagens)-inicio*/
 /*carregamento de sprites (imagens)  site */
@@ -71,7 +74,7 @@ loadSprite(
     /*sprites -fim*/
 
 /*camadas da cena */
-scene("game", ()=>
+scene("game", ({score}) =>
 {
 //nome das camadas
 layers(['bg','obj','ui'],'obj')
@@ -115,7 +118,7 @@ const levelCfg =
 '+':[sprite('pipe-top-right'), solid(),scale(0.5)],
 '-':[sprite('pipe-top-left'), solid(), scale(0.5)],
 //evil-shroom
-'^':[sprite('evil-shroom'), solid()],
+'^':[sprite('evil-shroom'), solid(),'dangerous'],
                            //tag para especificar|adiciona gravidade para o cogumelo
 '#':[sprite('mushroom'), solid(), 'mushroom',     body()    ], 
 }
@@ -124,7 +127,8 @@ const gameLevel= addLevel(map, levelCfg)
 
 //instancia a pontuacao do score //adiciona a pontuacao
 const scorelabel =               add([
-    text('test'),
+    //instancia o score
+    text(score),
     pos(30,6),
     //instancia camada que o score está
     //para nao interferir na camada que esta
@@ -133,7 +137,7 @@ const scorelabel =               add([
     //determina o que vai acontecer na camada ui
     {
     //determina o score em uma variavel
-    value:'test',
+    value:score,
     }
 ])
 //texto  |conteudo|nome|posicao
@@ -202,6 +206,16 @@ action ('mushroom',      (m)=>{
 m.move                                            (20,0)
 })
 
+//constante com o movimento dos inimigos
+const ENEMY_SPEED=20
+
+//acao dos inimigos
+action('dangerous',(d) =>{
+d.move(-ENEMY_SPEED,0)
+})
+
+
+
 //instancia o player(mario)
 const player = add([
 sprite('mario'),solid(),
@@ -258,7 +272,34 @@ player.collides('coin',(c) =>
     scorelabel.text=scorelabel.value
 })
 
+//acao de morte por queda
+player.action(() => {
+    //loca a camera no frame que o player está
+    camPos(player.pos)
+   //se a posicao do frame for maior ou igual a constante de morte por queda
+     //pega a posicao de frame da camera
+   if (player.pos.y >= FALL_DEATH)
+   {
+    //vai para cena de perda 
+    go('lose', {score:scorelabel.value})
+   }
+})
 
+//mario colidir com inimigos
+player.collides('dangerous', (d)=>{
+    //se o player estiver pulando
+    if(isJumping)
+    {
+        destroy(d)
+    }
+    //senao 
+    else
+    {
+    //vai para cena de perda 
+    go('lose', {score:scorelabel.value})
+    }
+   
+})
 //controle teclado
 //evento com o evento de precionar e manter precionado a tecla
 //metodo do kaboom|tecla|         | funcao do evento
@@ -272,12 +313,20 @@ keyDown('right', ()=>  {
     player.move(MOVE_SPEED,0)
     })
 
-//funcao com evendo de presionar e depois soltar a tecla
+    player.action(() =>{
+        if(player.grounded())
+        {
+            isJumping =false
+        }
+    })
+//funcao com evento de presionar e depois soltar a tecla
 keyPress('space', ()=>  {
 
     //verifica se o mario esta no chao
     if(player.grounded())
     {
+        //determina que o player esta pulando
+        isJumping = true
         //funcao que faz o player pular|regula a forca do pulo
         player.jump                    (CURRENT_JUMP_FORCE)
     }
@@ -292,6 +341,10 @@ keyPress('space', ()=>  {
 //final da cena
 })
 
-
+//cena de perda //score
+scene('lose', ({score}) => {
+    //adiciona|texto  | centraliza o texto| pega a posicao e altura e divide o tamanho por 2
+    add([text(score,32),origin('center'),pos(width()/2,height()/2)])
+})
 //inicia o jogo
-start("game")
+start("game",{score:0})
