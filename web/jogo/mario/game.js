@@ -71,6 +71,24 @@ loadSprite(
     loadSprite(
         'pipe-bottom-right','nqQ79eI.png'
     )
+    /*fim dos sprites do level 1*/
+    /*inicio sprites level2*/
+    loadSprite(
+        'blue-brick','3e5YRQd.png'
+    )
+    loadSprite(
+        'blue-block','fVscIbn.png'
+    )
+    loadSprite(
+        'blue-steel','gqVoI2b.png'
+    )
+    loadSprite(
+        'blue-evil-shroom','SvV4ueD.png'
+    )
+    loadSprite(
+        'blue-surprise','RMqCc1G.png'
+    )
+    /*fim sprites level2*/
     /*sprites -fim*/
 
 /*camadas da cena |intancia o level(nesse caso o 0)|instancia o score    */
@@ -80,7 +98,8 @@ scene("game", ({   level,                           score}) =>
 layers(['bg','obj','ui'],'obj')
 
 //mapa
-const map =
+const maps =[
+    //mapa level1
 [
     '                                                     ',
     '                                                     ',
@@ -90,11 +109,26 @@ const map =
     '                                                     ',
     '   %   =*=%=                                         ',
     '                                                     ',
-    '                            -+                        ',
-    '                    ^   ^   ()                        ',
-    '===============================   =====',
+    '                            -+                       ',
+    '                    ^   ^   ()                       ',
+    '===============================   =====              ',
+],
+[
+    '                                                     ',
+    '                                                     ',
+    '                                                     ',
+    '                                                     ',
+    '                                                     ',
+    '                                                     ',
+    '   %   =*=%=                                         ',
+    '                                                     ',
+    '                            -+                       ',
+    '                    ^   ^   ()                       ',
+    '===============================   =====              ',
 ]
+] = [
 
+]
 //instancia o level
 const levelCfg =
 {
@@ -123,7 +157,7 @@ const levelCfg =
 '#':[sprite('mushroom'), solid(), 'mushroom',     body()    ], 
 }
 //instancia o level no jogo
-const gameLevel= addLevel(map, levelCfg)
+const gameLevel= addLevel(maps[level], levelCfg)
 
 //instancia a pontuacao do score //adiciona a pontuacao
 const scorelabel =               add([
