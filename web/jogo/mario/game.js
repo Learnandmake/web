@@ -141,7 +141,9 @@ function big() {
     let timer=0
     //deixa a funcao isBig false
     let isBig=false
+    //retorna uma atualizacao
     return {
+        //atualiza o retorno
         update(){
            
              //chama a funcao isBig que vai entregar a variabel bool isBig
