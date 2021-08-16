@@ -112,7 +112,8 @@ const levelCfg =
 '-':[sprite('pipe-top-left'), solid(), scale(0.5)],
 //evil-shroom
 '^':[sprite('evil-shroom'), solid()],
-'#':[sprite('mushroom'), solid(), scale(0.5)],
+                           //tag para especificar|adiciona gravidade para o cogumelo
+'#':[sprite('mushroom'), solid(), 'mushroom',     body()    ], 
 }
 //instancia o level no jogo
 const gameLevel= addLevel(map, levelCfg)
@@ -136,52 +137,38 @@ add([text('level'+'test',pos(4,6))])
 
 //deixa o mario gigante
 function big() {
-    //tempo que o mario fica gigante
     let timer=0
-
-    //determina se o mario esta gigante
-    let isBig =false 
-
-    return
-    {
-        //atualiza a funcao
-        update()
-      {
-        //se a funcao for ativada
-        if(isBig)
-        {//tempo|menos|delta time methodo de tempo proprio do kaboom.js
-         timer  -=     dt()
-         if(timer<=0)
-         {
-             //tona o mario pequeno denovo
-             this.smallify()
-         }
-        }
-      }
-        isBig()
-        {
-         return isBig
-        }
-
-        smallify () 
-        {
-            this.scale=vec2(1)
-            timer =0
+    let isBig=false
+    return {
+        update(){
+            if(isBig){
+                timer -=dt()
+                if(timer <=0){
+                    this.smallify()
+                }
+            }
+        },
+        isBig(){
+            return isBig
+        },
+        smallify(){
+            this.scale=vec2(1,1)
+            timer=0
             isBig=false
-        }
-
-        biggify (time)
-        {
-            
-            this.scale=vec2(1)
-            timer =time
+        },
+        biggify(time){
+            this.scale=vec2(2)
+            timer=time
             isBig=true
         }
-
     }
 }
 
-
+//acao|elementos com tag|cria uma variavel para o cogumelo 
+action ('mushroom',      (m)=>{
+//cogumelo vai se mover constantemente no eixo x| valor do movimento 
+m.move                                            (10,0)
+})
 
 //instancia o player(mario)
 const player = add([
@@ -196,9 +183,51 @@ origin('bot')
 
 ])
 
+//
+
+
+//instancia a cabecada em objetos
+player.on("headbump",(obj) => {
+
+//se o objeto for o coin-surprise
+//instancia o objeto "coin-surprise"
+if(obj.is('coin-surprise'))
+{
+//nivel  |spawna|moeda|posiciona a moeda acima|valor da posicao
+gameLevel.spawn  ('$', obj.gridPos.sub         (0,1))
+
+//substitui a caixa de surpresa por uma caixa simples
+//nivel|spawna|caixa simples|aumenta a posicao|valor da posicao "0" indica que vai ficar na mesma posicao que a caixa de surpresa 
+gameLevel.spawn  ('}',       obj.gridPos.sub         (0,0))
+destroy(obj)
+}
+if(obj.is('mushroom-surprise'))
+{
+//nivel  |spawna|mushroom|posiciona a moeda acima|valor da posicao
+gameLevel.spawn  ('#', obj.gridPos.sub         (0,1))
+
+//substitui a caixa de surpresa por uma caixa simples
+//nivel|spawna|caixa simples|aumenta a posicao|valor da posicao "0" indica que vai ficar na mesma posicao que a caixa de surpresa 
+gameLevel.spawn  ('}',       obj.gridPos.sub         (0,0))
+destroy(obj)
+}
+})
+//instancia a colizao com o cogumelo
+//player(mario)|evento de colizao|id do objeto|variavel do objeto
+player         .collides          ('mushroom' ,(m) =>{
+    destroy(m)
+    player.biggify(6)
+} )
+
+player.collides('coin',(c) => 
+{
+    destroy(c)
+    scorelabel.value++
+    scorelabel.text=scorelabel.value
+})
+
+
 //controle teclado
-
-
 //evento com o evento de precionar e manter precionado a tecla
 //metodo do kaboom|tecla|         | funcao do evento
 keyDown(           'left'         , ()=>  {
