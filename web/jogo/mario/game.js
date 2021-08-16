@@ -102,7 +102,7 @@ const levelCfg =
 //elementos q vai ser substituido| instancia o sprite que vai substituir|nome do sprite|estado de posicao do sprite 
     '='                           :[sprite(                              'block'),        solid() ],
  //moeda
-    '$':[sprite('coin')],
+    '$':[sprite('coin'),'coin'],
 //luckyblock
 '%':[sprite('surprise'), solid(), 'coin-surprise'],
 //mushroom e luckyblock
