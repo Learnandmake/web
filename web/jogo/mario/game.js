@@ -137,28 +137,49 @@ add([text('level'+'test',pos(4,6))])
 
 //deixa o mario gigante
 function big() {
+    //tempo
     let timer=0
+    //deixa a funcao isBig false
     let isBig=false
     return {
         update(){
+           
+             //chama a funcao isBig que vai entregar a variabel bool isBig
+            //se a variavel isbig for verdadeira 
             if(isBig){
+                //tempo|delta time é uma funcao propria de temporizador
+                //kaboom.js
+                //o temporizador vai diminuindo
                 timer -=dt()
+                //se o tempo for menor ou igual a 0
+                //chama a funcao smallify
                 if(timer <=0){
+                    //o mario volta a ser pequeno
                     this.smallify()
                 }
             }
         },
+        //isbig retorna a variavel isbig
         isBig(){
             return isBig
         },
+       //funcao de tornar o mario pequeno denovo
         smallify(){
+             //smallify fica com a escala 1,1 
             this.scale=vec2(1,1)
+            //tempo fica com valor 0
             timer=0
+            //variavel isBig esta falsa
             isBig=false
         },
+        //funcao que deixa o mario gigante
+        //its big pede 0 tempo que o mario ficara gigante
         biggify(time){
+            //escala aumenta 2x
             this.scale=vec2(2)
+            //o temporizador vai receber o tempo 
             timer=time
+            // a variavel isbig vai ser verdadeira o que vai ativar o temporizador
             isBig=true
         }
     }
