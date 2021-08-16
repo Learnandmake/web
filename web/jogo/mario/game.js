@@ -7,10 +7,14 @@ debug:true,
 clearColor: [0,0,0,1],
 })
 
-//variavel com a velocidade do movimento do player (mario)
+//variavel constante com a velocidade do movimento do player (mario)
 const MOVE_SPEED =120
-//varivel com a forca do pulo do mario
+//variavel constante com a forca do pulo do mario
 const JUMP_FORCE=360
+//variavel constante com o maior salto que o mario vai poder dar
+const BIG_JUMP_FORCE =550
+//variavel com forca atual de pulo
+let CURRENT_JUMP_FORCE=JUMP_FORCE
 
 
 /*sprites (imagens)-inicio*/
@@ -149,6 +153,8 @@ function big() {
              //chama a funcao isBig que vai entregar a variabel bool isBig
             //se a variavel isbig for verdadeira 
             if(isBig){
+                //forca de pulo quando o mario ficar gigante
+                CURRENT_JUMP_FORCE=BIG_JUMP_FORCE
                 //tempo|delta time é uma funcao propria de temporizador
                 //kaboom.js
                 //o temporizador vai diminuindo
@@ -169,6 +175,8 @@ function big() {
         smallify(){
              //smallify fica com a escala 1,1 
             this.scale=vec2(1,1)
+            //forca de pulo no estado normal(pequeno)
+             CURRENT_JUMP_FORCE=JUMP_FORCE
             //tempo fica com valor 0
             timer=0
             //variavel isBig esta falsa
@@ -177,6 +185,7 @@ function big() {
         //funcao que deixa o mario gigante
         //its big pede 0 tempo que o mario ficara gigante
         biggify(time){
+          
             //escala aumenta 2x
             this.scale=vec2(2)
             //o temporizador vai receber o tempo 
@@ -190,7 +199,7 @@ function big() {
 //acao|elementos com tag|cria uma variavel para o cogumelo 
 action ('mushroom',      (m)=>{
 //cogumelo vai se mover constantemente no eixo x| valor do movimento 
-m.move                                            (10,0)
+m.move                                            (20,0)
 })
 
 //instancia o player(mario)
@@ -270,7 +279,7 @@ keyPress('space', ()=>  {
     if(player.grounded())
     {
         //funcao que faz o player pular|regula a forca do pulo
-        player.jump                    (JUMP_FORCE)
+        player.jump                    (CURRENT_JUMP_FORCE)
     }
  
 
