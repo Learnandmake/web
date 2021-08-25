@@ -51,7 +51,21 @@ const map=
 const levelCfg = {
     height:48,
     width:48,
-    'a':[sprite('left-wall'),solid()]
+    'a':[sprite('left-wall'),solid()],
+    'b':[sprite('right-wall'),solid()],
+    'c':[sprite('top-wall'),solid()],
+    'd':[sprite('bottom-wall'),solid()],
+    'w':[sprite('top-right-wall'),solid()],
+    'x':[sprite('bottom-left-wall'),solid()],
+    'y':[sprite('topleft-wall'),solid()],
+    'z':[sprite('bottom-right-wall'),solid()],
+    '%':[sprite('left-door'),solid()],
+    '^':[sprite('top-door'),solid()],
+    '$':[sprite('stairs'),solid()],
+    '*':[sprite('slicer'),solid()],
+    '}':[sprite('skeleton'),solid()],
+    ')':[sprite('lanterns'),solid()],
+    '(':[sprite('fire-pot'),solid()],
 }
 
 addLevel(map, levelCfg)
