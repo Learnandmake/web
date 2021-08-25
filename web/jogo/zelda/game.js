@@ -85,7 +85,14 @@ add([
 
 add([text('level ' + parseInt(level + 1)), pos(400,485),scale(2)])
 
-
+const player = add([
+sprite('link-going-right'),
+pos(5,190),
+{ 
+    //define o sprite direito do link como padrão para o jogador
+    dir: vec2(1,0),
+}
+])
 })
 
 start("game",{ level:0, score:0})
