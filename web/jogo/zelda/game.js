@@ -31,6 +31,8 @@ kaboom({
    loadSprite('stairs','VghkL08.png')
    loadSprite('bg','u4DVsx6.png')
 
+//variavel constante
+const MOVE_SPEED=120
 
 //instancia funcao
 scene("game", ({level,score})=>{
@@ -93,6 +95,45 @@ pos(5,190),
     dir: vec2(1,0),
 }
 ])
+
+player.action(()=>
+{
+    //fixa o link na posicao
+    player.resolve()
+})
+
+keyDown('left',()=> {
+    //muda o sprite do link para esquerda
+    player.changeSprite('link-going-left')
+    player.move(-MOVE_SPEED,0)
+    player.dir=vec2(-1,0)
+})
+
+keyDown('right',()=> {
+    //muda o sprite do link para direita
+    player.changeSprite('link-going-right')
+    player.move(MOVE_SPEED,0)
+    player.dir=vec2(1,0)
+})
+
+keyDown('up',()=> {
+    //muda o sprite do link para cima
+    player.changeSprite('link-going-up')
+              //eixo x    |eixo y
+    player.move(0,-MOVE_SPEED)
+    //define a direcao +1 direita, -1 esquerda
+    //             eixo x|eixoy
+    player.dir=vec2(0     ,-1)
+})
+
+keyDown('down',()=> {
+    
+    player.changeSprite('link-going-down')
+    player.move(0,MOVE_SPEED)
+    
+    player.dir=vec2(0,1)
+})
+
 })
 
 start("game",{ level:0, score:0})
