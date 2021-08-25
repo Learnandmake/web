@@ -37,15 +37,15 @@ scene("game", ()=>{
 
 const map=
 [
-'a           ',
-'a           ',
-'a           ',
-'a           ',
-'a           ',
-'a           ',
-'a           ',
-'a           ',
-'aaaaaaaaaaaa',
+'ycc)cc^ccw',
+'a        b',
+'a      * b',
+'a    (   b',
+'%        b',
+'a    (   b',
+'a   *    b',
+'a        b',
+'xdd)dd)ddz',
 ]
 
 const levelCfg = {
@@ -57,7 +57,7 @@ const levelCfg = {
     'd':[sprite('bottom-wall'),solid()],
     'w':[sprite('top-right-wall'),solid()],
     'x':[sprite('bottom-left-wall'),solid()],
-    'y':[sprite('topleft-wall'),solid()],
+    'y':[sprite('top-left-wall'),solid()],
     'z':[sprite('bottom-right-wall'),solid()],
     '%':[sprite('left-door'),solid()],
     '^':[sprite('top-door'),solid()],
