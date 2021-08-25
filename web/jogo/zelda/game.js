@@ -35,6 +35,7 @@ kaboom({
 //instancia funcao
 scene("game", ()=>{
 
+    layers(['bg','obj','ui'], 'obj')
 const map=
 [
 'ycc)cc^ccw',
@@ -69,7 +70,8 @@ const levelCfg = {
 }
 
 addLevel(map, levelCfg)
-
+//adiciona o sprite bg no mapa todo|sobrepoe a camada do bg
+add([sprite('bg'),                  layer('bg')])
 
 })
 
