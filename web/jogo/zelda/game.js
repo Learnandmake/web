@@ -3,12 +3,12 @@ kaboom({
     // tela cheia
     fullscreen:true,
     //tela de escala
-    scale:1,
+    Scale:1,
     //mensagens de debug
     debug:true
 })
 
-   loadRoot("https://imgur.com/")
+   loadRoot("https://i.imgur.com/")
    loadSprite('link-going-left','1Xq9biB.png')
    loadSprite('link-going-right','yZIb8O2.png')
    loadSprite('link-going-down','r377FIM.png')
@@ -33,10 +33,30 @@ kaboom({
 
 
 //instancia funcao
-screen("game", ()=>{
+scene("game", ()=>{
 
+const map=
+[
+'a           ',
+'a           ',
+'a           ',
+'a           ',
+'a           ',
+'a           ',
+'a           ',
+'a           ',
+'aaaaaaaaaaaa',
+]
+
+const levelCfg = {
+    height:48,
+    width:48,
+    'a':[sprite('left-wall'),solid()]
+}
+
+addLevel(map, levelCfg)
 
 
 })
 
-start ("game")
+start("game")
