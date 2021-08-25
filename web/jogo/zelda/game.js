@@ -33,7 +33,7 @@ kaboom({
 
 
 //instancia funcao
-scene("game", ()=>{
+scene("game", ({level,score})=>{
 
     layers(['bg','obj','ui'], 'obj')
 const map=
@@ -61,10 +61,10 @@ const levelCfg = {
     'y':[sprite('top-left-wall'),solid()],
     'z':[sprite('bottom-right-wall'),solid()],
     '%':[sprite('left-door'),solid()],
-    '^':[sprite('top-door'),solid()],
-    '$':[sprite('stairs'),solid()],
-    '*':[sprite('slicer'),solid()],
-    '}':[sprite('skeleton'),solid()],
+    '^':[sprite('top-door')],
+    '$':[sprite('stairs')],
+    '*':[sprite('slicer')],
+    '}':[sprite('skeleton')],
     ')':[sprite('lanterns'),solid()],
     '(':[sprite('fire-pot'),solid()],
 }
@@ -73,6 +73,19 @@ addLevel(map, levelCfg)
 //adiciona o sprite bg no mapa todo|sobrepoe a camada do bg
 add([sprite('bg'),                  layer('bg')])
 
+add([
+    text('0'),
+    pos(400,450),
+    layer('ui'),
+    {
+        value:score,
+    },
+    scale(2)
+])
+
+add([text('level ' + parseInt(level + 1)), pos(400,485),scale(2)])
+
+
 })
 
-start("game")
+start("game",{ level:0, score:0})
