@@ -67,19 +67,24 @@ const maps=[
 const levelCfg = {
     height:48,
     width:48,
-    'a':[sprite('left-wall'),solid()],
-    'b':[sprite('right-wall'),solid()],
-    'c':[sprite('top-wall'),solid()],
-    'd':[sprite('bottom-wall'),solid()],
-    'w':[sprite('top-right-wall'),solid()],
-    'x':[sprite('bottom-left-wall'),solid()],
-    'y':[sprite('top-left-wall'),solid()],
-    'z':[sprite('bottom-right-wall'),solid()],
-    '%':[sprite('left-door'),solid()],
+    'a':[sprite('left-wall'),solid(),'wall'],
+    'b':[sprite('right-wall'),solid(),'wall'],
+    'c':[sprite('top-wall'),solid(),'wall'],
+    'd':[sprite('bottom-wall'),solid(),'wall'],
+    'w':[sprite('top-right-wall'),solid(),'wall'],
+    'x':[sprite('bottom-left-wall'),solid(),'wall'],
+    'y':[sprite('top-left-wall'),solid(),'wall'],
+    'z':[sprite('bottom-right-wall'),solid(),'wall'],
+    '%':[sprite('left-door'),solid(),'door'],
     '^':[sprite('top-door'),'next-level'],
     '$':[sprite('stairs'),'next-level'],
-    '*':[sprite('slicer')],
-    '}':[sprite('skeleton')],
+                                   //seta a direcao 
+                                   //-1 velocidade da corrida e direcao dos slice que vai multiplicar com a base de velocidade constante  
+                                   //+1 =direita, -1: esquerda
+                                   //+ ou -= direcao
+                                   //1=velocidade  
+    '*':[sprite('slicer'),'slicer','dangerous', {dir: -1}],
+    '}':[sprite('skeleton'),'dangerous','skeletor', {dir: -1, timer:0}],
     ')':[sprite('lanterns'),solid()],
     '(':[sprite('fire-pot'),solid()],
 }
@@ -156,6 +161,90 @@ keyDown('down',()=> {
     player.move(0,MOVE_SPEED)
     
     player.dir=vec2(0,1)
+})
+//inimigos 
+const SLICER_SPEED = 100
+action('slicer',(s) =>{
+    //direcao do slice multiplicada pela velocidade do eixo x
+    s.move(s.dir*SLICER_SPEED,0)
+}) 
+//colisao do inimigo na parede
+          //quem colide|no que colide
+collides ('slicer',    'wall',(s)=>{
+//funcao que faz os inimigos voltarem quando colidir na parede
+//direcao positiva recebe a direcao negativa e quando colidir denono
+//a direcao negativa vai receber a direcao a positiva
+s.dir=-s.dir;
+})
+//morte quando colidir
+player.overlaps('dangerous',() => {
+    go('lose',{score:scoreLabel.value})
+})
+//morte 
+//esqueleto -inimigo
+const SKELETOR_SPEED=60
+
+action('skeletor', (s)=>{
+    s.move(0,s.dir* SKELETOR_SPEED)
+    
+    //cria um temporizador
+        //|tempo de frame do inimigo 
+    s.timer -=dt()
+    //se o tempo for igua a 0
+    if(s.timer <= 0)
+    {   
+        //muda a posicao do esqueleto
+        s.dir=-s.dir
+        //adiciona um tempo aleatorio para o temporizador
+        //escolhe um numero aleatorio de 1 ate 5
+        s.timer = rand(5)
+    }
+})
+collides('skeletor','wall',(s)=>
+{
+    s.dir=-s.dir
+})
+//spawn kaboom
+
+function spawnkaboom(p){
+    const obj = add([sprite('kaboom'),pos(p),'kaboom'])
+    //wait:funcao que faz esperar por tempo
+    wait(1,()=>
+    {
+        destroy(obj)
+    })
+}
+//colidir com a porta
+//player.collides('door',(d)=>{
+//destroy(d)
+//})
+collides ('kaboom','skeletor',(k,s)=>{
+  //xaqualha a camera
+    camShake(4)
+    wait(1,()=>{
+        destroy(k)
+    })
+    destroy(s)
+    scoreLabel.value++
+    scoreLabel.text=scoreLabel.value
+})
+collides ('kaboom','slicer',(k,a)=>{
+    camShake(4)
+    wait(1,()=>{
+        destroy(k)
+    })
+    destroy(a)
+    scoreLabel.value++
+    scoreLabel.text=scoreLabel.value
+})
+keyPress('space',()=>{
+    //adiciona a explosao na posicao na frente do link
+    spawnkaboom(player.pos.add(player.dir.scale(48)))
+})
+//cena de morte
+scene("lose", ({score}) => {
+    //texto e altura e largura na metade
+  add([text(score,32), origin('center'), pos(width()/2, height()/2)])  
 })
 
 })
