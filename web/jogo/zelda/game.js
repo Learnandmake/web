@@ -38,7 +38,7 @@ const MOVE_SPEED=120
 scene("game", ({level,score})=>{
 
     layers(['bg','obj','ui'], 'obj')
-const map=
+const maps=[
 [
 'ycc)cc^ccw',
 'a        b',
@@ -49,6 +49,19 @@ const map=
 'a   *    b',
 'a        b',
 'xdd)dd)ddz',
+],
+[
+    'yccccccccw',
+    'a        b',
+    ')        )',
+    'a        b',
+    'a        b',
+    'a    $   b',
+    ')   }    )',
+    'a        b',
+    'xddddddddz',
+]
+
 ]
 
 const levelCfg = {
@@ -63,19 +76,19 @@ const levelCfg = {
     'y':[sprite('top-left-wall'),solid()],
     'z':[sprite('bottom-right-wall'),solid()],
     '%':[sprite('left-door'),solid()],
-    '^':[sprite('top-door')],
-    '$':[sprite('stairs')],
+    '^':[sprite('top-door'),'next-level'],
+    '$':[sprite('stairs'),'next-level'],
     '*':[sprite('slicer')],
     '}':[sprite('skeleton')],
     ')':[sprite('lanterns'),solid()],
     '(':[sprite('fire-pot'),solid()],
 }
-
-addLevel(map, levelCfg)
+             //define nivel por mapa
+addLevel(maps[level], levelCfg)
 //adiciona o sprite bg no mapa todo|sobrepoe a camada do bg
 add([sprite('bg'),                  layer('bg')])
 
-add([
+const scoreLabel = add([
     text('0'),
     pos(400,450),
     layer('ui'),
@@ -96,6 +109,17 @@ pos(5,190),
 }
 ])
 
+//vai pro proximo nivel
+      //sobrepor|id pra sprite|
+player.overlaps('next-level',()=>{
+//vai para o jogo
+    go("game",{
+        //com nivel +1
+    level:(level+1)% maps.length,
+    //instancia o score
+    score:scoreLabel.value
+})
+})
 player.action(()=>
 {
     //fixa o link na posicao
