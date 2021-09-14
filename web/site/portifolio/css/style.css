@@ -79,6 +79,37 @@ border-radius: 300px;
 background:white;
 position:relative;
 animation:animacao-caixa 5s 3s infinite alternate;
+}
 
+@keyframes animacaoball2
+{
+    from 
+    {
+     /*estado inicial*/
+     width:15px;
+     height:15px;
+    border-radius: 300px;
+    background:white;
+    bottom:25px;
+     left:0px;
+    }
+    to
+    {
+     /*estado final*/
+     background:white;
+     border-radius: 300px;
+     bottom:25px;
+     left:800px;
+    }
+}
+#ball2
+{
+width:15px;
+height:15px;
+bottom:25px;
 
+border-radius: 300px;
+background:white;
+position:relative;
+animation:animacaoball2 5s 3s infinite alternate;
 }
