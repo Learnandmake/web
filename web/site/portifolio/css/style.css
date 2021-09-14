@@ -1,18 +1,26 @@
 body{
-    background-image: linear-gradient(purple, black);
+    background-image: linear-gradient(#836FFF,#6959CD);
     background-attachment: fixed;
     font-family:Georgia, 'Times New Roman', Times, serif;
     overflow-x:hidden;
 
 }
 
-header h3{
-    float: left;  
-    margin-left: 1em;
-    margin-top: 0.5em; 
-    font-size: 5em;
-    color:white; 
+header
+{
+    background:#836FFF;
+    opacity: 1;
 }
+
+svg:hover path {
+    fill: #7361ee;
+    transition:all 0.65s;
+  }
+  svg {
+    width: 90px;
+   
+  }  
+
 header ul
 {
     margin-right: 2em;
@@ -31,4 +39,46 @@ header ul li a:hover
 {
 background:white;
     color:purple;
+    text-decoration: none;
+    transition:all 0.5s;
+  
+}
+nav.nav-transparente
+{
+    padding: 15px 0px;
+    background: rgba(131,111,255,0.6);
+}
+
+/*animação*/
+@keyframes animacao-caixa
+{
+    from 
+    {
+     /*estado inicial*/
+     width:15px;
+     height:15px;
+    border-radius: 300px;
+    background:white;
+     top:0px;
+     left:0px;
+    }
+    to
+    {
+     /*estado final*/
+     background:white;
+     border-radius: 300px;
+     top:0px;
+     left:-800px;
+    }
+}
+#ball
+{
+width:15px;
+height:15px;
+border-radius: 300px;
+background:white;
+position:relative;
+animation:animacao-caixa 5s 3s infinite alternate;
+
+
 }
