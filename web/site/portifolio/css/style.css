@@ -5,7 +5,7 @@ body{
     overflow-x:hidden;
 
 }
-
+/*cabeçalho*/
 header
 {
     background:#836FFF;
@@ -20,6 +20,8 @@ svg:hover path {
     width: 90px;
    
   }  
+
+
 
 header ul
 {
@@ -112,4 +114,31 @@ border-radius: 300px;
 background:white;
 position:relative;
 animation:animacaoball2 5s 3s infinite alternate;
+}
+/*cabeçalho*/
+
+/*sobre mim*/
+h2
+{
+margin-top:150px;
+font-size:2em;
+float:left;
+color:white;
+}
+
+#moldura
+{
+    height:600px;
+    width:600px;
+    float:right;
+    margin-top:150px;
+    background:#483D8B;
+    border-radius:300px;
+    z-index: 9;
+}
+#foto
+{
+   margin-top:-50px;
+   margin-right:50px;
+   z-index: 10;
 }
