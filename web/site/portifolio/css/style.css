@@ -142,3 +142,51 @@ color:white;
    margin-right:50px;
    z-index: 10;
 }
+/*Fim sobre*/
+
+/*inicio trabalhos*/
+h1
+{
+    color:white;
+}
+#moldura
+{
+    float: left;
+}
+
+@keyframes up-and-down {
+    0%, 100% { transform: translateY(-15%)}
+    50%   { transform: translateY(15%)}
+  }
+  
+@keyframes fade-in {
+    0% { 
+      opacity: 0;
+      transform: translateY(50%);
+  }
+  100% { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+  }
+  
+  @keyframes fade-x {
+    0% { 
+      opacity: 0;
+      transform: translateX(50%);
+  }
+  100% { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+  }
+  .from-bottom {
+    animation: fade-in 0.8s ;
+    animation-play-state: paused;
+    animation-fill-mode: forwards;
+  }
+  .from-x {
+    animation: fade-x 0.8s ;
+    animation-play-state: paused;
+    animation-fill-mode: forwards;
+  }
