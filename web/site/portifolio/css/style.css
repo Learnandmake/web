@@ -142,16 +142,20 @@ color:white;
    margin-right:50px;
    z-index: 10;
 }
+
 /*Fim sobre*/
 
-/*inicio trabalhos*/
+/*inicio tecnologia*/
+
 h1
 {
     color:white;
+    text-align: center;
 }
-#moldura
+#linguagem
 {
     float: left;
+
 }
 
 @keyframes up-and-down {
@@ -161,7 +165,7 @@ h1
   
 @keyframes fade-in {
     0% { 
-      opacity: 0;
+      opacity: 5;
       transform: translateY(50%);
   }
   100% { 
@@ -181,12 +185,65 @@ h1
   }
   }
   .from-bottom {
-    animation: fade-in 0.8s ;
+    animation: fade-in 0.5s ;
     animation-play-state: paused;
     animation-fill-mode: forwards;
   }
-  .from-x {
-    animation: fade-x 0.8s ;
+  .from-x1 {
+    animation: fade-x 1.5s ;
     animation-play-state: paused;
     animation-fill-mode: forwards;
   }
+  .from-x2 {
+    animation: fade-x 2.5s ;
+    animation-play-state: paused;
+    animation-fill-mode: forwards;
+  }
+  .from-x3 {
+    animation: fade-x 3.5s ;
+    animation-play-state: paused;
+    animation-fill-mode: forwards;
+  }
+  .from-x4 {
+    animation: fade-x 4.5s ;
+    animation-play-state: paused;
+    animation-fill-mode: forwards;
+  }
+  .from-x5 {
+    animation: fade-x 5.5s ;
+    animation-play-state: paused;
+    animation-fill-mode: forwards;
+  }
+  .from-x6 {
+    animation: fade-x 6.5s ;
+    animation-play-state: paused;
+    animation-fill-mode: forwards;
+  }
+  .from-x7 {
+    animation: fade-x 7.5s ;
+    animation-play-state: paused;
+    animation-fill-mode: forwards;
+  }
+  #tecnologia::before
+  {
+    background:linear-gradient(to top,	#6e59f7, transparent);
+     content: '';
+     position: absolute;
+     bottom: 0;
+     width: 100%;
+     
+     height: 100px;
+  }
+/*fim tecnologia*/
+
+/*inicio projeto*/
+#projeto
+{
+  background-color:#6e59f7;
+  margin-left: 14px;
+}
+#site
+{
+ 
+}
+/*fim projeto*/
