@@ -247,4 +247,13 @@ h1
   margin-bottom:10px;
   margin-right: 10px;
 }
+
+ #tecnologia img:hover
+{
+  animation: up-and-down 2.0s ease-in-out infinite;
+}
+#projeto img:hover
+{
+  animation: up-and-down  1.50s ease-in-out infinite;
+}
 /*fim projeto*/
