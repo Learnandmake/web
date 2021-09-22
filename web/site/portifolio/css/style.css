@@ -52,38 +52,19 @@ nav.nav-transparente
 }
 
 /*animação*/
-@keyframes animacao-caixa
-{
-    from 
-    {
-     /*estado inicial*/
-     width:15px;
-     height:15px;
-    border-radius: 300px;
-    background:white;
-     top:0px;
-     left:0px;
-    }
-    to
-    {
-     /*estado final*/
-     background:white;
-     border-radius: 300px;
-     top:0px;
-     left:-800px;
-    }
-}
 #ball
 {
-width:15px;
-height:15px;
-border-radius: 300px;
-background:white;
-position:relative;
-animation:animacao-caixa 5s 3s infinite alternate;
+  width:15px;
+  height:15px;
+  bottom:25px;
+  margin-bottom:15px;
+  border-radius: 300px;
+  background:white;
+  position:relative;
+  animation:animacaoball 5s 3s infinite alternate;
 }
 
-@keyframes animacaoball2
+@keyframes animacaoball
 {
     from 
     {
@@ -104,16 +85,39 @@ animation:animacao-caixa 5s 3s infinite alternate;
      left:800px;
     }
 }
+
+@keyframes animacaoball2
+{
+    from 
+    {
+     /*estado inicial*/
+     width:15px;
+     height:15px;
+    border-radius: 300px;
+    background:white;
+     top:40px;
+     left:0px;
+    }
+    to
+    {
+     /*estado final*/
+     background:white;
+     border-radius: 300px;
+     top:40px;
+     left:-800px;
+    }
+}
+
 #ball2
 {
-width:15px;
-height:15px;
-bottom:25px;
-
-border-radius: 300px;
-background:white;
-position:relative;
-animation:animacaoball2 5s 3s infinite alternate;
+  width:15px;
+  height:15px;
+  top:40px;
+  margin-bottom:15px;
+  border-radius: 300px;
+  background:white;
+  position:relative;
+  animation:animacaoball2 5s 3s infinite alternate;
 }
 /*cabeçalho*/
 
@@ -152,7 +156,7 @@ h1
     color:white;
     text-align: center;
 }
-#linguagem
+#linguagem a
 {
     float: left;
 
@@ -234,26 +238,56 @@ h1
      
      height: 100px;
   }
+
+  
+ #tecnologia  img:hover
+ {
+   animation: up-and-down 2.0s ease-in-out infinite;
+ }
 /*fim tecnologia*/
 
 /*inicio projeto*/
-#projeto
+#projeto 
 {
   background-color:#6e59f7;
   margin-left: 14px;
 }
-.promoldura
+#projeto img
 {
   margin-bottom:10px;
   margin-right: 10px;
+  
 }
 
- #tecnologia img:hover
-{
-  animation: up-and-down 2.0s ease-in-out infinite;
-}
 #projeto img:hover
 {
   animation: up-and-down  1.50s ease-in-out infinite;
 }
 /*fim projeto*/
+
+/*inicio rodape*/
+footer
+{
+   background-color:white;
+    padding:50px 0px 20px 0px;
+    position:relative;
+    width: 100%;
+}
+
+footer svg
+{
+  width:70px;
+}
+
+footer svg:hover path
+{
+  fill:#483D8B;
+  transition:all 0.65s;
+}
+
+footer ul li
+{
+  color:#483D8B;
+}
+
+/*fim rodape*/
