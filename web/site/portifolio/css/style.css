@@ -246,32 +246,45 @@ h1
  }
 /*fim tecnologia*/
 
+
+
 /*inicio projeto*/
 #projeto 
 {
   background-color:#6e59f7;
-  margin-left: 14px;
 }
-
-
+#tprojeto
+{
+  margin-left: 10px;
+  text-align: center;
+}
+#exibicaoprojeto a
+{
+  margin-bottom: 10px;
+  margin-left:10px;
+  
+}
 #projeto img:hover
 {
   animation: up-and-down  1.50s ease-in-out infinite;
 }
+
+
 /*fim projeto*/
 
 /*inicio rodape*/
 footer
 {
    background-color:white;
-    padding:50px 0px 20px 0px;
+    padding:10px 0px 20px 0px;
     position:relative;
     width: 100%;
 }
 
 footer svg
 {
-  width:70px;
+  width:100px;
+  height: 80px;
 }
 
 footer svg:hover path
@@ -292,6 +305,20 @@ footer ul li
 {
     float:left;
     margin:0 5px;
+}
+@keyframes up {
+  0%, 100% { transform: translateY(-15%)}
+
+}
+footer ul li a img:hover
+{
+  animation: up  3s ease-in-out ;
+}
+
+
+footer ul li a img
+{
+  height:40px;
 }
 
 
