@@ -3,6 +3,7 @@ body{
     background-attachment: fixed;
     font-family:Georgia, 'Times New Roman', Times, serif;
     overflow-x:hidden;
+    height: 100%;
 
 }
 /*cabeçalho*/
