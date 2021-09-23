@@ -22,11 +22,4 @@
        window.addEventListener('scroll', render);
        //animacao-fim
        
-      //abrir navegação
-      $(function() {
-        'use strict'
   
-        $('[data-toggle="offcanvas"]').on('click', function() {
-          $('.offcanvas-collapse').toggleClass('open')
-        })
-      })
